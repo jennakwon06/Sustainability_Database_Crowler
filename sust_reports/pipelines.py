@@ -7,7 +7,6 @@
 
 import os
 import scrapy
-from scrapy.exceptions import DropItem
 from scrapy.pipelines.files import FilesPipeline
 from sust_reports.settings import FILES_STORE
 
@@ -15,7 +14,6 @@ from sust_reports.settings import FILES_STORE
 class SustReportsPipeline(FilesPipeline):
 
     def process_item(self, item, spider):
-        # spider.logger.info('INSIDE PROCESS ITEMS' + item['file_urls'])
         path = os.path.join(FILES_STORE, item['name'])
         report = item['file_urls'].split('/')[-1]
 
@@ -25,6 +23,6 @@ class SustReportsPipeline(FilesPipeline):
         path = os.path.join(path, report)
 
         with open(path, 'wb') as f:
-            f.write(path)
+            f.write(item['content'].body)
             return item
 

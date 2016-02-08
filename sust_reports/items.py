@@ -11,4 +11,5 @@ import scrapy
 class ReportItem(scrapy.Item):
     name = scrapy.Field()
     file_urls = scrapy.Field()
+    content = scrapy.Field()
     pass

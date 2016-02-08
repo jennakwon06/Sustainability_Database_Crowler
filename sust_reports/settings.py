@@ -61,7 +61,7 @@ NEWSPIDER_MODULE = 'sust_reports.spiders'
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {'sust_reports.pipelines.SustReportsPipeline': 300}
+ITEM_PIPELINES = {'sust_reports.pipelines.SustReportsPipeline': 100}
 
 FILES_STORE = 'scraped/reports/'
 # IMAGES_STORE = 'scraped/imgs'
